@@ -1,0 +1,11 @@
+commit 9c47074c9b6f4accdf709db908b0764d1755deef
+Author: Станислав <Stelth47@gmail.com>
+Date:   Tue Feb 9 20:04:36 2016 +0300
+
+    Add status.txt
+
+commit e6f0ee8c4515b7e0d7183514dd7f89ae933b50cf
+Author: Станислав <Stelth47@gmail.com>
+Date:   Tue Feb 9 19:58:51 2016 +0300
+
+    Add .gitignore

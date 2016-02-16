@@ -64,7 +64,6 @@ public class Main {
             JsonReader reader = Json.createReader(new FileReader(fileName));
             personObject = reader.readArray();
 
-
             JsonNumber timeStampArr;
 
             for (int i = 0; i < personObject.size(); i++){
@@ -114,10 +113,6 @@ public class Main {
 
             bw.close();
 
-            /*JsonWriter writer = Json.createWriter(new FileWriter(fileName));
-            writer.writeArray(personObject);
-            writer.close();*/
-
         }catch(IOException e){
             System.out.println("Error while saving");
             logOut("    Error while saving");
@@ -141,13 +136,6 @@ public class Main {
 
             list.add(new Message(UUID.randomUUID().toString(), message, author, t.toString()));
 
-        /*JsonValue jsonObject = Json.createObjectBuilder()
-                .add("id", UUID.randomUUID().toString())
-                .add("message", message)
-                .add("author", author)
-                .add("timestamp", t)
-                .build();
-        personObject.add(jsonObject);*/
 
         }catch (Exception e){
             System.out.println("Error while adding message");

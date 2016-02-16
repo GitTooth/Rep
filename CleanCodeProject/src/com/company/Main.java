@@ -1,19 +1,17 @@
 package com.company;
 
-import jdk.nashorn.internal.parser.JSONParser;
-
-import javax.json.*;
-import javax.json.stream.JsonParser;
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonNumber;
+import javax.json.JsonReader;
 import java.io.*;
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.sql.Timestamp;
 import java.util.Date;
+
 
 public class Main {
 
@@ -50,7 +48,9 @@ public class Main {
             raf.skipBytes((int)raf.length());
             raf.writeBytes("\r\n" + mess);
             raf.close();
-        }catch (IOException e){}
+        }catch (IOException e){
+            System.out.println("Log out error");
+        }
     }
 
     static void loadMessages(){
@@ -108,7 +108,7 @@ public class Main {
                     continue;
                 }
                 bw.write("{\"id\":\"" + list.get(i)._id + "\",\"author\":\"" + list.get(i)._author
-                       + "\",\"timestamp\":" + list.get(i)._timestamp + ",\"message\":\"" + list.get(i)._message + "\"},");
+                        + "\",\"timestamp\":" + list.get(i)._timestamp + ",\"message\":\"" + list.get(i)._message + "\"},");
 
             }
 
@@ -147,7 +147,6 @@ public class Main {
                 .add("author", author)
                 .add("timestamp", t)
                 .build();
-
         personObject.add(jsonObject);*/
 
         }catch (Exception e){
@@ -167,11 +166,11 @@ public class Main {
             System.out.println("Nothing to show");
             logOut("    Nothing to show");
         }
-        for(int i = 0; i < list.size(); i++) {
-            System.out.println("Author: " + list.get(i)._author + "\n"
-                    + "ID: " + list.get(i)._id + "\n"
-                    + "Timestamp: " + list.get(i)._timestamp + "\n"
-                    + "Message: " + list.get(i)._message + "\n");
+        for (Message aList : list) {
+            System.out.println("Author: " + aList._author + "\n"
+                    + "ID: " + aList._id + "\n"
+                    + "Timestamp: " + aList._timestamp + "\n"
+                    + "Message: " + aList._message + "\n");
         }
         System.out.println("----------------------------------------------------------" + "\n");
 
@@ -202,18 +201,18 @@ public class Main {
 
         boolean t = false;
 
-        for(int i = 0; i < list.size(); i++){
-            if(str.compareTo(list.get(i)._author) == 0) {
-                System.out.println("Author: " + list.get(i)._author + "\n"
-                        + "ID: " + list.get(i)._id + "\n"
-                        + "Timestamp: " + list.get(i)._timestamp + "\n"
-                        + "Message: " + list.get(i)._message + "\n");
+        for (Message aList : list) {
+            if (str.compareTo(aList._author) == 0) {
+                System.out.println("Author: " + aList._author + "\n"
+                        + "ID: " + aList._id + "\n"
+                        + "Timestamp: " + aList._timestamp + "\n"
+                        + "Message: " + aList._message + "\n");
                 t = true;
 
             }
         }
 
-        if(t == false) {
+        if(!t) {
             System.out.println("Nothing found");
             logOut("    Nothing found");
         }
@@ -226,19 +225,19 @@ public class Main {
         logOut("Searching message with token " + str);
 
         boolean t = false;
-        for(int i = 0; i < list.size(); i++){
-            if(str.compareTo(list.get(i)._author) == 0 || str.compareTo(list.get(i)._timestamp) == 0 ||
-                    str.compareTo(list.get(i)._id) == 0 || str.compareTo(list.get(i)._message) == 0){
+        for (Message aList : list) {
+            if (str.compareTo(aList._author) == 0 || str.compareTo(aList._timestamp) == 0 ||
+                    str.compareTo(aList._id) == 0 || str.compareTo(aList._message) == 0) {
 
-                System.out.println("Author: " + list.get(i)._author + "\n"
-                        + "ID: " + list.get(i)._id + "\n"
-                        + "Timestamp: " + list.get(i)._timestamp + "\n"
-                        + "Message: " + list.get(i)._message + "\n");
+                System.out.println("Author: " + aList._author + "\n"
+                        + "ID: " + aList._id + "\n"
+                        + "Timestamp: " + aList._timestamp + "\n"
+                        + "Message: " + aList._message + "\n");
                 t = true;
             }
         }
 
-        if(t == false) {
+        if(!t) {
             System.out.println("Nothing found");
         }logOut("   Nothing found");
     }
@@ -263,21 +262,21 @@ public class Main {
 
         boolean t = false;
 
-        for(int i = 0; i < list.size(); i++){
-            if((l.compareTo(new BigInteger(list.get(i)._timestamp)) == -1 ||
-                    l.compareTo(new BigInteger(list.get(i)._timestamp)) == 0) &&
-                    (r.compareTo(new BigInteger(list.get(i)._timestamp)) == 1 ||
-                    r.compareTo(new BigInteger(list.get(i)._timestamp)) == 0)){
+        for (Message aList : list) {
+            if ((l.compareTo(new BigInteger(aList._timestamp)) == -1 ||
+                    l.compareTo(new BigInteger(aList._timestamp)) == 0) &&
+                    (r.compareTo(new BigInteger(aList._timestamp)) == 1 ||
+                            r.compareTo(new BigInteger(aList._timestamp)) == 0)) {
 
-                System.out.println("Author: " + list.get(i)._author + "\n"
-                        + "ID: " + list.get(i)._id + "\n"
-                        + "Timestamp: " + list.get(i)._timestamp + "\n"
-                        + "Message: " + list.get(i)._message + "\n");
+                System.out.println("Author: " + aList._author + "\n"
+                        + "ID: " + aList._id + "\n"
+                        + "Timestamp: " + aList._timestamp + "\n"
+                        + "Message: " + aList._message + "\n");
                 t = true;
             }
         }
 
-        if(t == false) {
+        if(!t) {
             System.out.println("Nothing found");
             logOut("    Nothing found");
         }
@@ -293,18 +292,18 @@ public class Main {
         boolean t = false;
 
         Pattern pattern = Pattern.compile(str);
-        for(int i = 0; i < list.size(); i++) {
-            Matcher matcher = pattern.matcher(list.get(i)._message);
-            if(matcher.matches()){
-                System.out.println("Author: " + list.get(i)._author + "\n"
-                        + "ID: " + list.get(i)._id + "\n"
-                        + "Timestamp: " + list.get(i)._timestamp + "\n"
-                        + "Message: " + list.get(i)._message + "\n");
+        for (Message aList : list) {
+            Matcher matcher = pattern.matcher(aList._message);
+            if (matcher.matches()) {
+                System.out.println("Author: " + aList._author + "\n"
+                        + "ID: " + aList._id + "\n"
+                        + "Timestamp: " + aList._timestamp + "\n"
+                        + "Message: " + aList._message + "\n");
                 t = true;
             }
         }
 
-        if(t == false) {
+        if(!t) {
             System.out.println("Nothing found");
             logOut("    Nothing found");
         }
@@ -317,10 +316,10 @@ public class Main {
         System.out.print("1 - load messages\n2 - save messages\n3 - add message\n4 - show messages\n5 - find by author\n" +
                 "6 - find by token\n7 - show by period\n8 - find, using regular expression\n9 - delete message by index\n10 - help\n" +
                 "11 - exit\n");
-        int s = 0;
+        int s;
 
         try {
-            while(s != 11) {
+            while(true) {
 
                 s = sc.nextInt();
 
@@ -376,12 +375,10 @@ public class Main {
                 }
                 if (s == 11)
                     break;
-                s = 0;
             }
         }catch (Exception e){
             System.out.println("Wrong enter");
         }
 
     }
-
 }

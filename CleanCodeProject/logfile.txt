@@ -15,3 +15,16 @@ Adding message
 Showing messages
 Exit
 ------------------------------------------------------------
+Loading messages from log1.txt
+    File was not found
+Adding message
+Showing messages
+Showing messages
+    Nothing to show
+Adding message
+Showing messages
+Adding message
+Showing messages
+Help
+Exit
+------------------------------------------------------------

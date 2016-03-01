@@ -7,3 +7,13 @@
 	color: white;
 	font-weight: bold;
 }
+
+.blackButton{
+	height: 22px;
+	width: 75px;
+	border: none;
+	background-color: #929b94;
+	color: black;
+	font-weight: bold;
+}
+

@@ -3,6 +3,7 @@
 	<head>
 		<title>ChatTooth</title>
 		<link rel = "stylesheet" href = "style.css">
+		<script src = "functions.js"></script>
 
 	</head>
 
@@ -12,7 +13,7 @@
 
 		<style>
 		table {
-		    width:70%;
+		    width:100%;
 		}
 		table, th, td {
 		    border: 1px solid black;
@@ -22,73 +23,82 @@
 		    padding: 5px;
 		    text-align: left;
 		}
-		table#t01 tr:nth-child(even) {
+		table#tab1 tr:nth-child(even) {
 		    background-color: #4da6ff;
 		}
-		table#t01 tr:nth-child(odd) {
+		table#tab1 tr:nth-child(odd) {
 		   background-color:#b3d9ff;
 		}
-		table#t01 th	{
+		table#tab1 th{
 		    background-color: #0066ff;
 		    color: black;
 		}
 		</style>
 			
-		<b><font color = "white">Username:</b> User 1</font><br>
-		<font color = "white">Change username: </font><input type = "text" name = "Change" placeholder = "Enter new username">
-		<button class = "blueButton">Change</button>
+		<b><font color = "white">Username:<p id = "Username"></p></font></b>
+		<font color = "white">Change username: </font><input id = "changeUsername" name = "Change" placeholder = "Enter new username">
+		<button class = "blueButton" onclick="changeUsername()">Change</button>
 		<br>
 		<br>
 
 		<b><font color = "white">Message history:</font><b>
 		<img src = "http://s1.iconbird.com/ico/0512/SuperMonoBasic/file1337277250.png" alt="Mountain View" style="width:20px;height:20px;">
 		<br>
-		<table id = "t01">
-				<tr>
-					<th>Timestamp</th>
-					<th>Author</th>
-					<th>Message</th>
-					<th>ID</th>
-				</tr>
-				<tr>
-					<td>1454927239522</td>
-					<td>User 1</td>
-					<td>Hello!</td>
-					<td>92dff7ee-00d7-41e5-a3db-e7189963ee3e</td>
-				</tr>
-				<tr>
-					<td>1454927240054</td>
-					<td>User 2</td>
-					<td>Welcome, commrade</td>
-					<td>46f408b2-72cb-4307-b6e6-95a8515eb7c0</td>
-				</tr>
-				<tr>
-					<td>1454927241059</td>
-					<td>User 1</td>
-					<td>How are you?</td>
-					<td>8a253b16-e934-4cd6-8d1d-f631ac7a8e44</td>
-				</tr>
-				<tr>
-					<td>Message deleted</td>
+
+		<style>
+		#nav{
+			line-height:30px;
+		    background-color:#407eff;
+		    height:350px;
+		    width:750px;
+		    float:left;
+		    padding:5px;
+		    border-radius: 5px;
+		    opacity: 0.8;
+		}
+		</style>
+
+		<div id = "nav" style = "height:350px; overflow:auto;">
+		<table id="tab1" class="sortable">
+		    <tbody>
+		    </tbody>
 		</table>
-
-		<br>
-		<input class = "blueEnterSpace" name = "Message" placeholder = "Write message" style="width:500px; border-radius: 2px">
-		<button class = "blueButton">Send</button>
-		<br>
-
+		</div>
 		
+		<style>
+		#nav1{
+			line-height:30px;
+		    background-color:#407eff;
+		    height:300px;
+		    width:300px;
+		    float:left;
+		    padding:5px;
+		}
+		</style>
+
+		<form action="" id="add_persons" method="post" onsubmit="addRow();return false;">
+		<fieldset id = "nav1">
+		<legend>Add message</font></legend>
+        <label for="name"></label>
+        <input type="text" name="message" id="message" value="" size="37" tabindex="1" placeholder = "Enter message and press Enter" />
 		<br>
-		<font color = "white">Delete message:</font>
+		Delete message:</font>
 		<input type = "text" name = "Deleting" placeholder = "Enter ID">
 		<button class = "blueButton">Delete</font></button>
 		<br>
-		<font color = "white">Edit message:</font><br>
+		Edit message:</font><br>
 		<input type = "text" name = "Editing" placeholder = "Enter ID">
 		<br>
 		<input type = "text" name = "Editing" placeholder = "Enter message">	
 		<button class = "blueButton">Edit</button>
 		<br>
+		</fieldset>
+		</form>
+
+
+
+
+		
 
 	</body>
 

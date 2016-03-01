@@ -1,8 +1,8 @@
 .blueButton{
-	height: 22;
-	width: 75;
+	height: 22px;
+	width: 75px;
 	border-color: #0066ff;
-	border-radius: 1000000;
+	border-radius: 5px;
 	background-color: #0066ff;
 	color: white;
 	font-weight: bold;

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatTooth</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="JavaScript.js"></script>
+
+</head>
+
+<body background="Background.jpg">
+    <div id="titleBack">
+        <h1 class="whiteWords2">ChatTooth</h1>
+    </div>
+
+    <b>Message history:</b>
+    <img src="http://s1.iconbird.com/ico/0512/SuperMonoBasic/file1337277250.png" alt="Mountain View" style="width:20px;height:20px;">
+    <br>
+
+    <a class="whiteWords">
+        <div id="table" style="position:absolute;height:600px; overflow:auto;">
+            <table id="tab1" class="sortable">
+                <tbody></tbody>
+            </table>
+        </div>
+    </a>
+    <br><br>
+
+    <div id="functionsBack">
+        <br><br><br>
+
+
+        <a class="whiteWords">Username: </a><a class="whiteWords" id="Username"></a>
+        <br>
+        <a class="whiteWords">Change username: </a>
+        <input id="changeUsername" name="Change" placeholder="Enter new username" style="border:none">
+        <button class="blackButton" onclick="changeUsername()">Change</button>
+
+
+        <form action="" id="add message" method="post" onsubmit="addRow();return false;">
+            <label for="name"></label>
+            <a class="whiteWords">New message:</a> <br>
+            <input type="text" name="message" id="message" value="" size="20" tabindex="1" placeholder="Enter message and press Enter" style="border:none" />
+        </form>
+        <br>
+
+
+        <form action="" id="delete message" method="unpost" onsubmit="deleteRows();return false;">
+            <a class="whiteWords">Delete message:</a><br>
+            <button class="longBlackButton" onclick="deleteRows()">Delete selected messages</button>
+        </form>
+
+
+        <br>
+        <a class="whiteWords">
+            Edit message:<br>
+            <input type="text" id="idMessage" name="Editing" placeholder="Enter ID" style="border:none">
+            <br>
+            <input type="text" id="editedMessage" name="Editing" placeholder="Enter new message" style="border:none">
+            <button class="blackButton" onclick="editMessage()">Edit</button>
+            <br><br><br>
+            Connection:<img src="http://www.iconsearch.ru/uploads/icons/crystalclear/24x24/button_ok.png" />
+            </a>
+    </div>
+
+</body>
+</html>

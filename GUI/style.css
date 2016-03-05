@@ -1,3 +1,4 @@
+﻿/*Buttons////////////////////////////////////////////////////////////////////////////*/
 .blueButton{
 	height: 22px;
 	width: 75px;
@@ -12,8 +13,81 @@
 	height: 22px;
 	width: 75px;
 	border: none;
-	background-color: #929b94;
-	color: black;
+	background-color: #767676;
+	color: white;
 	font-weight: bold;
+	font-family:Arial;
 }
 
+.longBlackButton{
+	height: 44px;
+	width: 150px;
+	border: none;
+	background-color: #767676;
+	color: white;
+	font-weight: bold;
+	font-family:Arial;
+}
+
+/*Fonts////////////////////////////////////////////////////////////////////////////*/
+.whiteWords{
+	color: white;
+	font-family: Arial;
+}
+
+.whiteWords2{
+	color: white;
+	font-family: segoe script;
+}
+
+/*Blocks////////////////////////////////////////////////////////////////////////////*/
+#titleBack{
+	line-height:30px;
+    background-color:black;
+    position:absolute; z-index:1; top:0px; left:0px; width:99%; text-align:left;
+    float:left;
+    padding:5px;
+    
+}
+#functionsBack{
+	line-height:30px;
+    background-color:#414042;
+    position:absolute;left:0px;
+	top: 0px;
+	bottom: 0px;
+    float:left;
+    padding:5px;
+    width: 200px;
+
+}
+#table{
+	position:absolute;left:206px;top:77px;width:800px; text-align:left;
+	line-height:30px;
+    background-color:#d9d9d9;
+    height:375px;
+    float:left;
+    opacity: 0.8;
+}
+
+/*tables/////////////////////////////////////////////////////////////////////////*/
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#tab1 tr:nth-child(even) {
+    background-color: #666666;
+}
+table#tab1 tr:nth-child(odd) {
+   background-color:#808080;
+}
+table#tab1 th{
+    background-color: #0066ff;
+    color: black;
+}

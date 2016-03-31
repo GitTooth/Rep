@@ -7,7 +7,7 @@
 
 </head>
 
-<body background="Background.jpg">
+<body background="Background.jpg" onload="run('#tab1');" onunload="exit();">
     <div id="titleBack">
         <h1 class="whiteWords2">ChatTooth</h1>
     </div>
@@ -57,7 +57,12 @@
             <br>
             <input type="text" id="editedMessage" name="Editing" placeholder="Enter new message" style="border:none">
             <button class="blackButton" onclick="editMessage()">Edit</button>
-            <br><br><br>
+            <br>
+            <button class = "longBlackButton" onclick="clearLocalStorage()">Clear local storage</button> 
+            <br>
+
+            <br><br>
+
             Connection:<img src="http://www.iconsearch.ru/uploads/icons/crystalclear/24x24/button_ok.png" />
             </a>
     </div>
